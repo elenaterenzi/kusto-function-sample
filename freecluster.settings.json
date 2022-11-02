@@ -1,0 +1,33 @@
+{
+    "authenticationMode": "UserPrompt",
+    "waitForUser": true,
+    "waitForIngestSeconds": 20,
+    "batchingPolicy": {
+        "MaximumBatchingTimeSpan": "00:00:10",
+        "MaximumNumberOfItems": 500,
+        "MaximumRawDataSizeMB": 1024
+    },
+    "kustoUri": "https://kvcyr6r82d5xbzwwgubt51.northeurope.kusto.windows.net/",
+    "ingestUri": "https://ingest-kvcyr6r82d5xbzwwgubt51.northeurope.kusto.windows.net/",
+    "databaseName": "MyDatabase",
+    "tableName": "RawMetrics",
+    "useExistingTable": true,
+    "tableSchema": "(fields:dynamic, name:string, tags:dynamic, timestamp:datetime, data:string)",
+    "programmingLanguage": "C#",
+    "alterTable": true,
+    "queryData": true,
+    "ingestData": true,
+    "data": [
+        {
+            "sourceType": "localFileSource",
+            "dataSourceUri": "endtime.txt",
+            "format": "txt",
+            "ignoreFirstRecord": false,
+            "useExistingMapping": false,
+            "mappingName": "RawMetrics_mapping",
+            "mappingValue": ""
+        }
+    ],
+    "ADXClusterUrl": "https://adxlake.synlakespike.kusto.azuresynapse.net",
+    "ADXDatabase":"adxlake"
+}
